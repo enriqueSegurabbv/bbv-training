@@ -5,6 +5,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface ResourceClassDataRepository extends JpaRepository<ResourceClassEntity, Long> {
@@ -16,4 +17,7 @@ public interface ResourceClassDataRepository extends JpaRepository<ResourceClass
     List<ResourceClassEntity> findByName(String name);
 
     List<ResourceClassEntity> findByUuid(String uuid);
+
+    List<ResourceClassEntity> removeByName(String name);
+
 }
