@@ -20,4 +20,6 @@ public interface ResourceClassDataRepository extends JpaRepository<ResourceClass
 
     List<ResourceClassEntity> removeByName(String name);
 
+    @Override
+    List<ResourceClassEntity> findAll(Sort sort);
 }

@@ -11,11 +11,11 @@ import javax.persistence.Table;
 @Table(name = "resource_class")
 public class ResourceClassEntity {
 
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name="uuid")
+    @Id
+    @Column (name="uuid", unique = true, nullable = false)
     private String uuid;
 
     @Column (name = "name")
