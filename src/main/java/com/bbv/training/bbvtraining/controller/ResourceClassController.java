@@ -23,17 +23,17 @@ public class ResourceClassController {
     public List<ResourceClassEntity> getAll() {
         return service.findAll();
     }
-    @GetMapping("/{resourceclassUuid}")
-    public ResourceClassEntity getResourceClass(@PathVariable("resourceclassUuid") String  uuid) {
-        /// http://localhost:8080/api/resourceclass/4bb56dcb-1d63-4215-a61f-efb32094dc22
-        ResourceClassEntity result = service.findByUuid(uuid);
+    @GetMapping("/{resourceclassId}")
+    public ResourceClassEntity getResourceClass(@PathVariable("resourceclassId") Long  id) {
+        /// http://localhost:8080/api/resourceclass/7
+        ResourceClassEntity result = service.findById(id);
         return result;
     }
 
     @GetMapping("/delete/{resourceclassId}")
-    public String deleteResourceClassById(@PathVariable("resourceclassId") String  uuid) {
-        /// http://localhost:8080/api/resourceclass/12
-        return service.deleteByUuid(uuid);
+    public void deleteResourceClassById(@PathVariable("resourceclassId") Long  id) {
+        // http://localhost:8080/api/resourceclass/delete/4bb56dcb-1d63-4215-a61f-efb32094dc26
+        service.deleteById(id);
     }
 
 }

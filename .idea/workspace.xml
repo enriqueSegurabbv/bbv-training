@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5543367c-c427-4cd6-886b-5660eb6644c0" name="Changes" comment="[main] Initial commit." />
+    <list default="true" id="5543367c-c427-4cd6-886b-5660eb6644c0" name="Changes" comment="[main] Added the ResourceClassService and adapted the entity object for the Rest protocole with Uuid.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/bbv/training/bbvtraining/service/ResourceClassServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/controller/ResourceClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/controller/ResourceClassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/entity/ResourceClassEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/entity/ResourceClassEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/repository/ResourceClassDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/repository/ResourceClassDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/repository/ResourceClassRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/repository/ResourceClassRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/service/ResourceClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bbv/training/bbvtraining/service/ResourceClassService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bbv/training/bbvtraining/controller/ResourceClassDataRepositoryIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bbv/training/bbvtraining/controller/ResourceClassDataRepositoryIT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bbv/training/bbvtraining/repository/ResourceClassRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bbv/training/bbvtraining/repository/ResourceClassRepositoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,14 +34,40 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bbv-training" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bbv-training" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bbv-training" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,11 +75,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
         <entry key="com.haulmont.jpb.jpaStructure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -52,21 +98,147 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/enriqueseguraquintana/Development/bbv-training&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;18a6c21c7b0340171049c8b147ac50d9&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/enriqueseguraquintana/Development/bbv-training/src/main/resources/db/migration",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "18a6c21c7b0340171049c8b147ac50d9"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ResourceClassServiceTest">
+    <configuration name="ResourceClassServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bbv.training.bbvtraining.service.ResourceClassServiceTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ResourceClassServiceTest.deleteById_basic" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bbv.training.bbvtraining.service.ResourceClassServiceTest.deleteById_basic&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ResourceClassServiceTest.findAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bbv.training.bbvtraining.service.ResourceClassServiceTest.findAll&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ResourceClassServiceTest.findById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bbv.training.bbvtraining.service.ResourceClassServiceTest.findById&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ResourceClassServiceTest.findByUuid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.bbv.training.bbvtraining.service.ResourceClassServiceTest.findByUuid&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="BbvTrainingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="bbv-training.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bbv.training.bbvtraining.BbvTrainingApplication" />
@@ -74,6 +246,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ResourceClassServiceTest" />
+        <item itemvalue="Gradle.ResourceClassServiceTest.findByUuid" />
+        <item itemvalue="Gradle.ResourceClassServiceTest.findAll" />
+        <item itemvalue="Gradle.ResourceClassServiceTest.deleteById_basic" />
+        <item itemvalue="Gradle.ResourceClassServiceTest.findById" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -84,7 +265,12 @@
       <option name="presentableId" value="Default" />
       <updated>1664444979209</updated>
       <workItem from="1664444980703" duration="965000" />
-      <workItem from="1664445977919" duration="11000" />
+      <workItem from="1664445977919" duration="822000" />
+      <workItem from="1665058386188" duration="12002000" />
+      <workItem from="1665125571067" duration="19767000" />
+      <workItem from="1665310609059" duration="494000" />
+      <workItem from="1665382491505" duration="35546000" />
+      <workItem from="1665471087489" duration="7070000" />
     </task>
     <task id="LOCAL-00001" summary="[master] Initial commit.">
       <created>1664445432755</created>
@@ -93,7 +279,49 @@
       <option name="project" value="LOCAL" />
       <updated>1664445432755</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[main] Initial commit.">
+      <created>1664446066044</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664446066044</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[main] Added new Repository and first entity with first Flyway migration.">
+      <created>1665098234613</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665098234613</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[main] Inserted more item into resource_class table.">
+      <created>1665126499563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665126499563</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[main] Added delete controller method and getAll method.">
+      <created>1665146144760</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665146144760</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[main] Added new repository methods and its tests.">
+      <created>1665146177246</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1665146177246</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[main] Added the ResourceClassService and adapted the entity object for the Rest protocole with Uuid.">
+      <created>1665411038903</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1665411038903</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +340,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[master] Initial commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="[master] Initial commit." />
+    <MESSAGE value="[main] Initial commit." />
+    <MESSAGE value="[main] Added new Repository and first entity with first Flyway migration." />
+    <MESSAGE value="[main] Inserted more item into resource_class table." />
+    <MESSAGE value="[main] Added delete controller method and getAll method." />
+    <MESSAGE value="[main] Added new repository methods and its tests." />
+    <MESSAGE value="[main] Added the ResourceClassService and adapted the entity object for the Rest protocole with Uuid." />
+    <option name="LAST_COMMIT_MESSAGE" value="[main] Added the ResourceClassService and adapted the entity object for the Rest protocole with Uuid." />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.orm.jpa.SharedEntityManagerCreator$DeferredQueryInvocationHandler" memberName="target" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

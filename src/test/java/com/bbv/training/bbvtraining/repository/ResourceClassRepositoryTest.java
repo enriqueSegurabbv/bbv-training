@@ -1,34 +1,33 @@
 package com.bbv.training.bbvtraining.repository;
 
-import com.bbv.training.bbvtraining.BbvTrainingApplication;
 import com.bbv.training.bbvtraining.entity.ResourceClassEntity;
+import com.bbv.training.bbvtraining.service.ResourceClassService;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-import javax.persistence.Query;
-import java.util.List;
 
-@SpringBootTest(classes = BbvTrainingApplication.class)
+@SpringBootTest
 public class ResourceClassRepositoryTest {
 
     @Autowired
-    private ResourceClassRepository repository;
+    private ResourceClassService service;
 
     @Test
     void findById_basic() {
-        ResourceClassEntity resourceClassEntity = repository.findById(4L);
+        ResourceClassEntity resourceClassEntity = service.findById(5L);
 
-        assertThat(resourceClassEntity.getName()).isEqualTo("Screen 2");
+        assertThat(resourceClassEntity.getName()).isEqualTo("Headphones");
     }
 
     @Test
     @DirtiesContext
     void deleteById_basic() {
-        repository.deleteById(7L);
-        ResourceClassEntity resourceClassEntity = repository.findById(7L);
+        service.deleteById(7L);
+        ResourceClassEntity resourceClassEntity = service.findById(7L);
         assertThat(resourceClassEntity).isNull();
     }
 
@@ -36,13 +35,13 @@ public class ResourceClassRepositoryTest {
     @DirtiesContext
     void save_basic() {
         //prepare
-        ResourceClassEntity entity = repository.findById(1L);
-        assertThat(entity.getName()).isEqualTo("Mouse");
+        ResourceClassEntity entity = service.findById(4L);
+        assertThat(entity.getName()).isEqualTo("Screen 2");
         //act
-        entity.setName("Mouse - Updated");
-        repository.save(entity);
+        entity.setName("Screen 2 - Updated");
+        service.save(entity);
         //assert
-        assertThat(entity.getName()).isEqualTo("Mouse - Updated");
+        assertThat(entity.getName()).isEqualTo("Screen 2 - Updated");
     }
 
 }

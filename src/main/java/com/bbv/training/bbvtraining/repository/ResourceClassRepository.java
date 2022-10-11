@@ -2,15 +2,13 @@ package com.bbv.training.bbvtraining.repository;
 
 import com.bbv.training.bbvtraining.entity.ResourceClassEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Service
+@Repository
 @Transactional
 public class ResourceClassRepository {
     @Autowired
@@ -34,8 +32,8 @@ public class ResourceClassRepository {
         return resourceClassEntity;
     }
 
-    public void deleteByUuid(String uuid) {
-        ResourceClassEntity entity = findByUuid(uuid);
+    public void deleteById(Long id) {
+        ResourceClassEntity entity = findById(id);
         entityManager.remove(entity);
     }
 
