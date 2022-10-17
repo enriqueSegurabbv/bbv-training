@@ -2,14 +2,12 @@ package com.bbv.training.bbvtraining.repository;
 
 import com.bbv.training.bbvtraining.entity.ResourceClassEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Repository
-@Transactional
+@Service
 public class ResourceClassRepository {
     @Autowired
     private ResourceClassDataRepository dataRepository;
