@@ -1,52 +1,70 @@
 package com.bbv.training.bbvtraining.service;
 
 import com.bbv.training.bbvtraining.entity.ResourceClassEntity;
-import org.junit.jupiter.api.BeforeAll;
+import com.bbv.training.bbvtraining.repository.ResourceClassDataRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
-import java.util.List;
+import java.util.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
-
-
-@SpringBootTest
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@ExtendWith(MockitoExtension.class)
 public class ResourceClassServiceTest {
 
-    @Autowired
-    private ResourceClassService service;
+    @InjectMocks
+    private ResourceClassService classUnderTest;
 
-    @Autowired
-    private EntityManager entityManager;
+    @Mock
+    private ResourceClassDataRepository repository;
 
-    @BeforeAll
-    private void init(){
-        service.save(new ResourceClassEntity("123456789", "Test Device"));
+    @Test
+    void simpleFinById() {
+        //Prepare
+        when(repository.findById(1L)).thenReturn(Optional.of(new ResourceClassEntity(UUID.randomUUID().toString(), "test")));
+        //act
+        ResourceClassEntity entity = classUnderTest.findById(1L);
+        //assert
+        assertThat(entity.getName()).isEqualTo("test");
     }
 
     @Test
-    void findById() {
-        assertThat(entityManager.find(ResourceClassEntity.class, 8L)).isNotNull();
+    void simpleFindAll() {
+        //prepare
+        List <ResourceClassEntity> entities = new ArrayList<ResourceClassEntity>();
+        ResourceClassEntity entity1 = new ResourceClassEntity(UUID.randomUUID().toString(), "test1");
+        ResourceClassEntity entity2 = new ResourceClassEntity(UUID.randomUUID().toString(), "test2");
+        ResourceClassEntity entity3 = new ResourceClassEntity(UUID.randomUUID().toString(), "test3");
+        ResourceClassEntity entity4 = new ResourceClassEntity(UUID.randomUUID().toString(), "test4");
+        //act
+        entities.add(entity1);
+        entities.add(entity2);
+        entities.add(entity3);
+        entities.add(entity4);
+        when(repository.findAll()).thenReturn(entities);
+//        verify(repository, times(1)).findAll();
+        //assert
+        assertThat(classUnderTest.findAll()).isEqualTo(entities);
     }
 
     @Test
-    void deleteById_basic(){
-        service.deleteById(8L);
-        assertThat(entityManager.find(ResourceClassEntity.class, 8L)).isNull();
-    }
+    void simpleDeleteById() {
+        //prepare
+        List <ResourceClassEntity> entities = new ArrayList<ResourceClassEntity>();
+        ResourceClassEntity entity = new ResourceClassEntity(UUID.randomUUID().toString(), "test1");
+        entities.add(entity);
 
-    @Test
-    void findAll(){
-        List<ResourceClassEntity> resources = service.findAll();
-        Query query = entityManager.createNativeQuery("SELECT * FROM RESOURCE_CLASS");
-        List<Long> resultList = query.getResultList();
-        assertThat(resultList).hasSize(resources.size());
+        //act
+        repository.deleteById(1L);
+
+        //assert
+        assertThat(repository.findById(1L)).isEmpty();
     }
 
 }
