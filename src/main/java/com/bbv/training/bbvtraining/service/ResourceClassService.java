@@ -25,6 +25,16 @@ public class ResourceClassService {
 
     }
 
+    public ResourceClassEntity findByUuid(String uuid) {
+        List<ResourceClassEntity> result = repository.findByUuid(uuid);
+
+        if(result.isEmpty()) {
+            throw new EntityNotFoundException("Entity with Uuid " + uuid + " not found");
+        }
+
+        return result.get(0);
+    }
+
     public List<ResourceClassEntity> findAll() {
         return repository.findAll();
     }

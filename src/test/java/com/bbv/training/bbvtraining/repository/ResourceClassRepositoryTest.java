@@ -1,47 +1,63 @@
 package com.bbv.training.bbvtraining.repository;
 
 import com.bbv.training.bbvtraining.entity.ResourceClassEntity;
-import com.bbv.training.bbvtraining.service.ResourceClassService;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
 
 
-@SpringBootTest
+@DataJpaTest
 public class ResourceClassRepositoryTest {
 
     @Autowired
-    private ResourceClassService service;
+    private ResourceClassDataRepository classUnderTest;
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Test
-    void findById_basic() {
-        ResourceClassEntity resourceClassEntity = service.findById(5L);
+    void insertSimple() {
+        // arrange
+        ResourceClassEntity input = new ResourceClassEntity("Uuid", "BBV");
 
-        assertThat(resourceClassEntity.getName()).isEqualTo("Headphones");
+        // act
+        classUnderTest.save(input);
+        entityManager.flush();
+
+        // assert
+        Query query = entityManager.createNativeQuery("SELECT id FROM RESOURCE_CLASS where NAME=? and UUID=?");
+        query.setParameter(1, "BBV");
+        query.setParameter(2, "Uuid");
+
+        List<Long> resultList = query.getResultList();
+        assertThat(resultList).hasSize(1);
     }
 
     @Test
-    @DirtiesContext
-    void deleteById_basic() {
-        service.deleteById(7L);
-        ResourceClassEntity resourceClassEntity = service.findById(7L);
-        assertThat(resourceClassEntity).isNull();
-    }
+    void simpleDelete() {
 
-    @Test
-    @DirtiesContext
-    void save_basic() {
         //prepare
-        ResourceClassEntity entity = service.findById(4L);
-        assertThat(entity.getName()).isEqualTo("Screen 2");
+        ResourceClassEntity input = new ResourceClassEntity("Uuid","Test Device");
+
         //act
-        entity.setName("Screen 2 - Updated");
-        service.save(entity);
+        classUnderTest.save(input);
+        classUnderTest.removeByName("Test Device");
+
         //assert
-        assertThat(entity.getName()).isEqualTo("Screen 2 - Updated");
+        Query query = entityManager.createNativeQuery("SELECT id FROM RESOURCE_CLASS where NAME=?");
+        query.setParameter(1, "Test Device");
+        List<Long> resultList = query.getResultList();
+        assertThat(resultList).hasSize(0);
     }
+
+
 
 }
+
+
